@@ -1,3 +1,6 @@
+A simple loan calculator, which allows users to input an amount and years – both using an input field and slider. It also shows a basic break up offer. The app works in both modes: on mobile and desktop. 
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
