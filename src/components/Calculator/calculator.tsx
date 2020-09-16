@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
-import { InputField } from "./styles";
+import { SectionStyled, InputField, Label, InputWrapper } from "./styles";
 import { Link } from "react-router-dom";
-import { Section, MaxWidth, LayoutRow } from "../Layout";
+import { MaxWidth, LayoutRow } from "../Layout";
 
 const calculateInterest = (
   loan: number,
@@ -21,7 +21,6 @@ const formatNumber = (value: number) => {
 };
 
 const Calculator = () => {
-  const [showHoverContent, setShowHoverContent] = useState(false);
   const [loan, setLoan] = useState<number>(5000);
   const [years, setYears] = useState<number>(3);
 
@@ -32,20 +31,21 @@ const Calculator = () => {
   const clampedYears = clampValue(years || 0, yearBounds.min, yearBounds.max);
   const interestRate = 3;
   const interest = calculateInterest(loan, interestRate, years);
-  console.log(interest);
 
   return (
     <>
-      <Section>
+      <SectionStyled>
         <MaxWidth>
           <LayoutRow>
-            <InputField
-              active={showHoverContent}
-              value={loan}
-              onBlur={() => setLoan(Number(clampedLoan))}
-              onChange={(event) => setLoan(Number(event.target.value))}
-              type="number"
-            />
+            <InputWrapper>
+              <Label>loan amount</Label>
+              <InputField
+                value={loan}
+                onBlur={() => setLoan(Number(clampedLoan))}
+                onChange={(event) => setLoan(Number(event.target.value))}
+                type="number"
+              />
+            </InputWrapper>
             <Slider
               min={20}
               max={2000}
@@ -66,7 +66,6 @@ const Calculator = () => {
               }}
             />
             <InputField
-              active={showHoverContent}
               value={years}
               onBlur={() => setYears(Number(clampedYears))}
               onChange={(event) => setYears(Number(event.target.value))}
@@ -84,7 +83,7 @@ const Calculator = () => {
             <Link to="/thankyou">Apply credit</Link>
           </LayoutRow>
         </MaxWidth>
-      </Section>
+      </SectionStyled>
     </>
   );
 };
