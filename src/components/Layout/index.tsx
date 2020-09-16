@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Flex = styled.div`
   box-sizing: border-box;
@@ -29,14 +29,12 @@ export const LayoutRow = styled(Flex)`
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: -8px;
-  margin-left: -8px;
+  margin-right: -12px;
+  margin-left: -12px;
   min-width: 0px;
 `;
 
 export const Col = styled(Flex)`
-  padding-left: 8px;
-  padding-right: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
 `;
-
-export {};

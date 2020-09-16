@@ -1,16 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import logo from "./logo.svg";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import styled from "styled-components";
-import { Section } from "./components/Layout";
-import Calculator from "./components/Calculator/calculator";
-import ThankYouPage from "./Pages/ThankYouPage";
-
-const First = styled.div`
-  display: flex;
-`;
+import Landing from "./pages/Landing";
+import ThankYouPage from "./pages/ThankYouPage";
 
 function App() {
   return (
@@ -18,7 +10,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/" exact>
-            <Calculator />
+            <Landing />
           </Route>
           <Route path="/thankyou" exact>
             <ThankYouPage />
